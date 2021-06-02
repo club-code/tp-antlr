@@ -7,10 +7,9 @@ import java.util.stream.Collectors;
 
 public class First {
     public static void main(String[] args) {
-        var lexer = new FirstLexer(CharStreams.fromString("""
-        25 + 3 * 2
-        42 - (-69)
-    """.trim()));
+        var lexer = new FirstLexer(CharStreams.fromString(
+                "25 + 3 * 2\n" +
+                        "42 - (-69)".trim()));
         var tokens = new CommonTokenStream(lexer);
         var parser = new FirstParser(tokens);
         var tree = parser.start();

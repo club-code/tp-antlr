@@ -7,12 +7,12 @@ import java.util.stream.Collectors;
 
 public class First {
     public static void main(String[] args) {
-        var lexer = new FirstLexer(CharStreams.fromString(
+        FirstLexer lexer = new FirstLexer(CharStreams.fromString(
                 "25 + 3 * 2\n" +
                         "42 - (-69)".trim()));
-        var tokens = new CommonTokenStream(lexer);
-        var parser = new FirstParser(tokens);
-        var tree = parser.start();
+        CommonTokenStream tokens = new CommonTokenStream(lexer);
+        FirstParser parser = new FirstParser(tokens);
+        FirstParser.StartContext tree = parser.start();
         System.out.println(tokens.getTokens().stream().map(token -> "Jeton: " + token.getText().replace("\n", "\\n") + ", ")
                 .collect(Collectors.joining()));
     }

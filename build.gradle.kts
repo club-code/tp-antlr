@@ -27,18 +27,22 @@ tasks.getByName<Test>("test") {
 
 tasks.register("runFirstKotlin") {
     application.mainClass.set("FirstKt")
+    dependsOn("generateGrammarSource")
     dependsOn("run")
 }
 tasks.register("runSecondKotlin") {
     application.mainClass.set("SecondKt")
+    dependsOn("generateGrammarSource")
     dependsOn("run")
 }
 tasks.register("runFirstJava") {
     application.mainClass.set("First")
+    dependsOn("generateGrammarSource")
     dependsOn("run")
 }
 tasks.register("runSecondJava") {
     application.mainClass.set("Second")
+    dependsOn("generateGrammarSource")
     dependsOn("run")
 }
 

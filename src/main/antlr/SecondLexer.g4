@@ -1,4 +1,4 @@
-lexer grammar ExcaliburLexer;
+lexer grammar SecondLexer;
 
 ADD: '+';
 SUB: '-';

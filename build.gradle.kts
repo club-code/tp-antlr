@@ -2,6 +2,7 @@ plugins {
     java
     kotlin("jvm") version "1.5.10"
     antlr
+    application
 }
 
 group = "club.code"
@@ -22,6 +23,23 @@ dependencies {
 
 tasks.getByName<Test>("test") {
     useJUnitPlatform()
+}
+
+tasks.register("runFirstKotlin") {
+    application.mainClass.set("FirstKt")
+    dependsOn("run")
+}
+tasks.register("runSecondKotlin") {
+    application.mainClass.set("SecondKt")
+    dependsOn("run")
+}
+tasks.register("runFirstJava") {
+    application.mainClass.set("First")
+    dependsOn("run")
+}
+tasks.register("runSecondJava") {
+    application.mainClass.set("Second")
+    dependsOn("run")
 }
 
 tasks.generateGrammarSource {
